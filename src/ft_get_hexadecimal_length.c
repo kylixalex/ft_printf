@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.h                                        :+:      :+:    :+:   */
+/*   ft_get_hexadecimal_length.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyalexan <kyalexan@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 16:42:22 by kyalexan          #+#    #+#             */
-/*   Updated: 2022/07/09 17:11:15 by kyalexan         ###   ########.fr       */
+/*   Created: 2022/07/09 16:41:50 by kyalexan          #+#    #+#             */
+/*   Updated: 2022/07/09 17:17:42 by kyalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRLEN_H
-# define FT_STRLEN_H
+int	ft_get_hexadecimal_length(unsigned long int unsigned_long_integer)
+{
+	int	length;
 
-int	ft_strlen(const char *s);
-
-#endif
+	length = 0;
+	if (unsigned_long_integer == 0)
+		return (1);
+	while (unsigned_long_integer)
+	{
+		length++;
+		unsigned_long_integer /= 16;
+	}
+	return (length);
+}

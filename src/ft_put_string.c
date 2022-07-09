@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.h                                        :+:      :+:    :+:   */
+/*   ft_put_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyalexan <kyalexan@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 16:42:22 by kyalexan          #+#    #+#             */
-/*   Updated: 2022/07/09 17:11:15 by kyalexan         ###   ########.fr       */
+/*   Created: 2022/07/09 16:42:12 by kyalexan          #+#    #+#             */
+/*   Updated: 2022/07/09 17:02:06 by kyalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRLEN_H
-# define FT_STRLEN_H
+#include <unistd.h>
 
-int	ft_strlen(const char *s);
+#include "ft_strlen.h"
 
-#endif
+int	ft_put_string(const char *s)
+{
+	if (s == NULL)
+		return (write(STDOUT_FILENO, "(null)", 6));
+	return (write(STDOUT_FILENO, s, ft_strlen(s)));
+}
